@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Document</title>
+</head>
+<body>
+	<section>
+		<div id="login">
+
+			<div class="container">
+				<div id="login-row"
+					class="row justify-content-center align-items-center">
+					<div id="login-column" class="col-md-6">
+						<div id="login-box" style="height: 240px;" class="col-md-12">
+
+							<!--Email Form  -->
+							<div class="container mt-3">
+								<div th:if="${message != null}" class="alert"
+									th:classappend="'alert-' + ${message.type}"
+									th:text="${message.content}"></div>
+									
+								<!-- div class="alert alert-success mt-2" role="alert">OTP
+									SEND TO YOUR EMAIL..</div>
+ -->
+
+								<h3 class="text-center m-3">Your Registration Email</h3>
+
+								<form action="" th:action="@{/verify-otp}" method="post">
+
+									<div class="form-group">
+
+										<input required name="otp" type="text"
+											placeholder="Enter OTP Here" class="form-control">
+
+									</div>
+
+
+									<div class="container text-center">
+
+										<button class="btn btn-success">Verify</button>
+
+									</div>
+
+								</form>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+</body>
+</html>
